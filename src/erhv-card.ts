@@ -37,17 +37,10 @@ export class ERHVCard extends LitElement implements LovelaceCard {
             includeDomains
         );
         // Return a minimal configuration that will result in a working card configuration
-        return {climate_entity: foundEntities[0] || ""};
+        return "";
     }
 
     public setConfig(config: ERHVCardConfig): void {
-        if (!config.entity) {
-            throw new Error("Entity must be specified");
-        }
-        if (config.entity && !isValidEntityId(config.entity)) {
-            throw new Error("Invalid entity");
-        }
-
         this._config = config;
 
         if (this._config.footer) {
@@ -64,12 +57,6 @@ export class ERHVCard extends LitElement implements LovelaceCard {
     render() {
         if (!this.hass || !this._config) {
             return html`Custom card not found!`;
-        }
-
-        const stateObj = this.hass.states[this._config.climate_entity];
-        if (!stateObj) {
-            return html`
-                <ha-card>Unknown entity: ${this._config.climate_entity}</ha-card> `;
         }
 
         const name = this._config.name || "NoName";
@@ -172,14 +159,6 @@ export class ERHVCard extends LitElement implements LovelaceCard {
 
                     <!-- start center column -->
                     <div id="center">
-                        <div id="target_temperature">
-                            <svg viewBox="0 0 80 40">
-                                <text x="50%" dx="1" y="25%" text-anchor="middle" style="font-size:13px" @click=${this._handleMoreInfo}>
-                                    ${this.hass.states[this._config.climate_entity].attributes.temperature}
-                                    <tspan dx="-3" dy="-6.5" style="font-size:4px">°C</tspan>
-                                </text>
-                            </svg>
-                        </div>
                     </div>
                     <!-- end center column -->
 

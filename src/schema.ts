@@ -1,6 +1,5 @@
 export const ERHVSchema = [
     { name: "title", selector: {text: {}}},
-    { name: "climate_entity", label: "Climate entity", required: true, selector: {entity: {domain: ["climate"]}}},
     {
         type: "grid",
         label: "Intake",

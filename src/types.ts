@@ -2,7 +2,6 @@ import {LovelaceCardConfig} from "custom-card-helpers";
 
 export interface ERHVCardConfig extends LovelaceCardConfig {
     header: string;
-    climate_entity: string;
     name: string;
     icon: string;
     intake_temperature: string;

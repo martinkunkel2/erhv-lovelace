@@ -22,9 +22,7 @@ Example configuration:
 ```
 type: custom:erhv-card
 icon: mdi:account
-entity: climate.ca350_climate
 supply_temperature: sensor.ca350_supply_temperature
-climate_entity: climate.ca350_climate
 intake_temperature: sensor.ca350_outside_temperature
 intake_fan_speed_rpm: sensor.ca350_supply_fan_speed
 name: WHR 930
@@ -42,8 +40,6 @@ summer_mode: binary_sensor.ca350_summer_mode
 | Option                          | Description                                                                     | Required |
 |---------------------------------|---------------------------------------------------------------------------------|----------|
 | `name`                          | Name on the card                                                                | Yes      |
-| `entity`                        | The entity to be displayed.                                                     | Yes      |
-| `climate_entity:`               | The entity to be displayed.                                                     | Yes      |
 | `supply_temperature:`           | Entity providing supply temperature                                             | Yes      |
 | `return_temperature:`           | Entity providing Return temperature                                             | Yes      |
 | `intake_temperature:`           | Entity providing Intake (outside) temperature                                   | Yes      |
